@@ -30,7 +30,7 @@ cat options:
 
 Common options:
     -h, --help             Display this message
-    -o, --output <file>    Write output to <file> instead of stdout.
+    -o, --output <file>     Write output to <file> instead of stdout.
     -n, --no-headers       When set, the first row will NOT be interpreted
                            as column names. Note that this has no effect when
                            concatenating columns.
