@@ -12,36 +12,45 @@ use util;
 
 static USAGE: &'static str = "
 Fill empty fields in selected columns of a CSV.
+
 This command fills empty fields in the selected column
 using the last seen non-empty field in the CSV. This is
 useful to forward-fill values which may only be included
 the first time they are encountered.
+
 The option `--default <value>` fills all empty values
 in the selected columns with the provided default value.
+
 The option `--first` fills empty values using the first
 seen non-empty value in that column, instead of the most
 recent non-empty value in that column.
+
 The option `--backfill` fills empty values at the start of
 the CSV with the first valid value in that column. This
 requires buffering rows with empty values in the target
 column which appear before the first valid value.
+
 The option `--groupby` groups the rows by the specified
 columns before filling in the empty values. Using this
 option, empty values are only filled with values which
 belong to the same group of rows, as determined by the
 columns selected in the `--groupby` option.
+
 When both `--groupby` and `--backfill` are specified, and the
 CSV is not sorted by the `--groupby` columns, rows may be
 re-ordered during output due to the buffering of rows
 collected before the first valid value.
+
 Usage:
     xsv fill [options] [--] <selection> [<input>]
     xsv fill --help
+
 fill options:
     -g --groupby <keys>    Group by specified columns.
     -f --first             Fill using the first valid value of a column, instead of the latest.
     -b --backfill          Fill initial empty values with the first valid value.
     -v --default <value>   Fill using this default value.
+
 Common options:
     -h, --help             Display this message
     -o, --output <file>    Write output to <file> instead of stdout.
@@ -50,6 +59,7 @@ Common options:
                            sliced, etc.)
     -d, --delimiter <arg>  The field delimiter for reading CSV data.
                            Must be a single character. (default: ,)
+
 ";
 
 type ByteString = Vec<u8>;
